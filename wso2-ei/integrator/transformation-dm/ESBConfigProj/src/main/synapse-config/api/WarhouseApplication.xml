@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/warehouse" name="WarhouseApplication" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <datamapper config="gov:datamapper/WarehouseOrder.dmc" description="Order Mapping" inputSchema="gov:datamapper/WarehouseOrder_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/WarehouseOrder_outputSchema.json" outputType="JSON" xsltStyleSheet="gov:datamapper/WarehouseOrder_xsltStyleSheet.xml"/>
+            <call>
+                <endpoint key="WarehouseOrderEP"/>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

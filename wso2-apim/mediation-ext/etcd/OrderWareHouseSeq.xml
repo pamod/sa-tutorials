@@ -1,0 +1,16 @@
+ <sequence name="warehouseSvcDiscoverySeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">  
+   <log>  
+     <property name="State" value="Discovery Sequence"/>  
+   </log>  
+   <call blocking="true">  
+    <endpoint>
+       <http method="get" uri-template="http://127.0.0.1:2379/v2/keys/warehouseOrderEP"/>
+     </endpoint>
+   </call>  
+   <log level="full" />
+   <property description="WarehouseOrderEP Value" expression="json-eval($.node.value)" name="WarehouseOrderEP" scope="default" type="STRING"/>  
+   <log>  
+     <property name="Discovert Endpoint Value" expression="$ctx:WarehouseOrderEP"/>  
+   </log>  
+   <header name="To" expression="$ctx:WarehouseOrderEP"/>  
+ </sequence>  

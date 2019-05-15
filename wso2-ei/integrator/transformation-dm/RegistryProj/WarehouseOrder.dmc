@@ -1,0 +1,16 @@
+map_S_root_S_root = function(){ 
+var outputroot={};
+
+outputroot =  {};
+outputroot.cust_id = inputroot.customer;
+outputroot.delivery = inputroot.address;
+outputroot.contact = inputroot.telephone;
+outputroot.item = inputroot.itemId;
+outputroot.quantity = inputroot.quantity;
+return outputroot;
+};
+
+
+
+
+

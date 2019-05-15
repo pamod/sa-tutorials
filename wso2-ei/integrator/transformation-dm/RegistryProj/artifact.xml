@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="warehouseOrderInput" groupId="org.wso2.registry.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>warehouseOrderInput.json</file>
+            <path>/_system/config/warehouse</path>
+            <mediaType/>
+        </item>
+    </artifact>
+    <artifact name="warehouseOrderOutput" groupId="org.wso2.registry.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>warehouseOrderOutput.json</file>
+            <path>/_system/config/warehouse</path>
+            <mediaType/>
+        </item>
+    </artifact>
+    <artifact name="WarehouseOrder" groupId="org.wso2.registry.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>WarehouseOrder.dmc</file>
+            <path>/_system/governance/datamapper</path>
+            <mediaType>text/plain</mediaType>
+        </item>
+    </artifact>
+    <artifact name="WarehouseOrder_inputSchema" groupId="org.wso2.registry.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>WarehouseOrder_inputSchema.json</file>
+            <path>/_system/governance/datamapper</path>
+            <mediaType>text/plain</mediaType>
+        </item>
+    </artifact>
+    <artifact name="WarehouseOrder_outputSchema" groupId="org.wso2.registry.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>WarehouseOrder_outputSchema.json</file>
+            <path>/_system/governance/datamapper</path>
+            <mediaType>text/plain</mediaType>
+        </item>
+    </artifact>
+    <artifact name="WarehouseOrder_xsltStyleSheet" groupId="org.wso2.registry.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>WarehouseOrder_xsltStyleSheet.xml</file>
+            <path>/_system/governance/datamapper</path>
+            <mediaType>text/plain</mediaType>
+        </item>
+    </artifact>
+</artifacts>

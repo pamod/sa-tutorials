@@ -1,0 +1,9 @@
+{
+ "customer":"hmart", 
+ "address":"addr1", 
+ "telephone":"784-7948754", 
+ "itemId":"A100", 
+ "quantity":120,
+ "company":"otp",
+ "owner":"manager" 
+}
