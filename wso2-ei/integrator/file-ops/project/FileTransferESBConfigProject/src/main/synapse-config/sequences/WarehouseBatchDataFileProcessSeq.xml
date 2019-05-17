@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="WarehouseBatchDataFileProcessSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <iterate continueParent="true" expression="//jsonObject/inventories/inventory" id="WarehouseItr" xmlns:ns="http://org.apache.synapse/xsd">
+        <target>
+            <sequence>
+                <sequence key="WarehouseDataFileProcessSeq"/>
+            </sequence>
+        </target>
+    </iterate>
+</sequence>

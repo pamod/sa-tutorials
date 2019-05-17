@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="WarehouseDataFileProcessSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property name="OUT_ONLY" scope="default" type="STRING" value="true"/>
+    <log level="full"/>
+    <call>
+        <endpoint key="WarehouseOrderEP"/>
+    </call>
+    <drop/>
+</sequence>

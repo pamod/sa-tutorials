@@ -1,0 +1,20 @@
+{
+    "inventories" : {
+        "inventory":[
+            {
+                "cust_id":"hmart", 
+                "delivery":"addr1", 
+                "contact":"784-7948754", 
+                "item":"A100", 
+                "quantity":120
+            },
+            {
+                "cust_id":"hmart2", 
+                "delivery":"addr2", 
+                "contact":"784-748484", 
+                "item":"A123", 
+                "quantity":400
+            }
+        ]
+     }
+ }

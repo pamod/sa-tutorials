@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/warehouse/batch" name="WarehouseBatchOrderFileStorageApi" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <property name="FORCE_SC_ACCEPTED" scope="axis2" type="STRING" value="true"/>
+            <property name="ClientApiNonBlocking" scope="axis2" type="STRING" value="true"/>
+            <property name="OUT_ONLY" scope="default" type="STRING" value="true"/>
+            <iterate continueParent="true" expression="//jsonObject/inventories/inventory" id="WarehouseItr" xmlns:ns="http://org.apache.synapse/xsd">
+                <target>
+                    <sequence>
+                        <property expression="json-eval($.inventory.item)" name="fileName" scope="default" type="STRING"/>
+                        <property expression="fn:concat('file:///Users/pamod/Desktop/demo/sa-tutorials/wso2-ei/integrator/file-ops/destination/',$ctx:fileName)" name="address" scope="default" type="STRING"/>
+                        <fileconnector.send>
+                            <address>{$ctx:address}</address>
+                            <append>false</append>
+                        </fileconnector.send>
+                    </sequence>
+                </target>
+            </iterate>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>
