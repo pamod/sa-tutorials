@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="QueueTransferFileSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property expression="json-eval($.inventory.item)" name="fileName" scope="default" type="STRING"/>
+    <property expression="fn:concat('file:///Users/pamod/Desktop/demo/sa-tutorials/wso2-ei/integrator/file-ops/destination/',$ctx:fileName)" name="address" scope="default" type="STRING"/>
+    <fileconnector.send>
+        <address>{$ctx:address}</address>
+        <append>false</append>
+    </fileconnector.send>
+</sequence>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="FileTransferQueueSequence" groupId="org.wso2.integration.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/FileTransferQueueSequence.xml</file>
+    </artifact>
+    <artifact name="FileTransferQueueErrorSequence" groupId="org.wso2.integration.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/FileTransferQueueErrorSequence.xml</file>
+    </artifact>
+    <artifact name="FileTransferQueueInboundEndpoint" groupId="org.wso2.integration.inbound-endpoint" version="1.0.0" type="synapse/inbound-endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/inbound-endpoints/FileTransferQueueInboundEndpoint.xml</file>
+    </artifact>
+    <artifact name="QueueTransferFileSequence" groupId="org.wso2.integration.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/QueueTransferFileSequence.xml</file>
+    </artifact>
+    <artifact name="QueueTransferFileInboundEndpoint" groupId="org.wso2.integration.inbound-endpoint" version="1.0.0" type="synapse/inbound-endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/inbound-endpoints/QueueTransferFileInboundEndpoint.xml</file>
+    </artifact>
+</artifacts>
