@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="MailExchangeProxy" startOnLoad="true" transports="mailto" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <property name="OUT_ONLY" scope="default" type="STRING" value="true"/>
+            <send>
+                <endpoint>
+                    <address uri="jms:/MailOrders?transport.jms.ConnectionFactoryJNDIName=QueueConnectionFactory&amp;java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;java.naming.provider.url=failover:(tcp://localhost:61616,tcp://localhost:61617)?randomize=false&amp;transport.jms.DestinationType=queue"/>
+                </endpoint>
+            </send>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </target>
+    <parameter name="mail.pop3.socketFactory.class">javax.net.ssl.SSLSocketFactory</parameter>
+    <parameter name="mail.pop3.host">pop.gmail.com</parameter>
+    <parameter name="transport.PollInterval">1</parameter>
+    <parameter name="mail.pop3.user">sademo2019</parameter>
+    <parameter name="mail.pop3.fetchsize">1</parameter>
+    <parameter name="transport.mail.Protocol">pop3</parameter>
+    <parameter name="transport.mail.Address">sademo2019@gmail.com</parameter>
+    <parameter name="mail.pop3.socketFactory.port">995</parameter>
+    <parameter name="mail.pop3.password">sa@wso2.com</parameter>
+    <parameter name="mail.pop3.port">995</parameter>
+    <parameter name="mail.pop3.socketFactory.fallback">false</parameter>
+    <parameter name="transport.mail.ContentType">application/json</parameter>
+</proxy>

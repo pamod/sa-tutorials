@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="MailExchangeProxy" groupId="org.wso2.integration.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/MailExchangeProxy.xml</file>
+    </artifact>
+    <artifact name="QueueTransferEmailSequence" groupId="org.wso2.integration.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/QueueTransferEmailSequence.xml</file>
+    </artifact>
+    <artifact name="QueueTansferEmailErrorSequence" groupId="org.wso2.integration.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/QueueTansferEmailErrorSequence.xml</file>
+    </artifact>
+    <artifact name="QueueTransferEmailInboundEndpoint" groupId="org.wso2.integration.inbound-endpoint" version="1.0.0" type="synapse/inbound-endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/inbound-endpoints/QueueTransferEmailInboundEndpoint.xml</file>
+    </artifact>
+</artifacts>

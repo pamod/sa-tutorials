@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="QueueTransferEmailSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property name="Subject" scope="transport" type="STRING" value="Mail Order"/>
+    <property name="messageType" scope="axis2" type="STRING" value="text/plain"/>
+    <property name="ContentType" scope="axis2" type="STRING" value="text/plain"/>
+    <property name="OUT_ONLY" scope="default" type="STRING" value="true"/>
+    <header expression="fn:concat('mailto:', 'synapse.demo.0@gmail.com')" name="To" scope="default"/>
+    <send/>
+</sequence>
