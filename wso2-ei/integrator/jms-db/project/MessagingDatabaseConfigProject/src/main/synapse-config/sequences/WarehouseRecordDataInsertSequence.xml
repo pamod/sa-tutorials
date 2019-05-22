@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="WarehouseRecordDataInsertSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property name="OUT_ONLY" scope="default" type="STRING" value="true"/>
+    <payloadFactory media-type="json">
+        <format>{
+  "_postdata":
+  {
+    "cust_id":"$1",
+    "delivery":"$2",
+    "contact":"$3",
+    "item":"$4",
+    "quantity":$5
+  }
+}</format>
+        <args>
+            <arg evaluator="xml" expression=" //jsonObject/inventory/cust_id"/>
+            <arg evaluator="xml" expression="//jsonObject/inventory/delivery"/>
+            <arg evaluator="xml" expression="//jsonObject/inventory/contact"/>
+            <arg evaluator="xml" expression="//jsonObject/inventory/item"/>
+            <arg evaluator="xml" expression="//jsonObject/inventory/quantity"/>
+        </args>
+    </payloadFactory>
+    <call>
+        <endpoint key="WarehouseDataInsertEndpoint"/>
+    </call>
+</sequence>

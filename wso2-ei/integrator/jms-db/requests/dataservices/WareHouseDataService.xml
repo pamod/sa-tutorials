@@ -1,0 +1,86 @@
+<data name="WarehouseService" serviceNamespace="http://ws.wso2.org/dataservice">
+   <config enableOData="false" id="default">
+      <property name="carbon_datasource_name">WarehouseDB</property>
+   </config>
+   <query id="insert_tbl_orders_query" useConfig="default">
+      <sql>INSERT INTO tbl_orders(cust_id,delivery,contact,item,quantity) VALUES(?,?,?,?,?)</sql>
+      <param name="cust_id" ordinal="1" sqlType="STRING"/>
+      <param name="delivery" ordinal="2" sqlType="STRING"/>
+      <param name="contact" ordinal="3" sqlType="STRING"/>
+      <param name="item" ordinal="4" sqlType="STRING"/>
+      <param name="quantity" ordinal="5" sqlType="INTEGER"/>
+   </query>
+   <query id="delete_tbl_orders_query" useConfig="default">
+      <sql>DELETE FROM tbl_orders WHERE cust_id=?</sql>
+      <param name="cust_id" ordinal="1" sqlType="STRING"/>
+   </query>
+   <query id="update_tbl_orders_query" useConfig="default">
+      <sql>UPDATE tbl_orders SET delivery=?,contact=?,item=?,quantity=? WHERE cust_id=?</sql>
+      <param name="delivery" ordinal="1" sqlType="STRING"/>
+      <param name="contact" ordinal="2" sqlType="STRING"/>
+      <param name="item" ordinal="3" sqlType="STRING"/>
+      <param name="quantity" ordinal="4" sqlType="INTEGER"/>
+      <param name="cust_id" ordinal="5" sqlType="STRING"/>
+   </query>
+   <query id="select_with_key_tbl_orders_query" useConfig="default">
+      <sql>SELECT cust_id, delivery, contact, item, quantity FROM tbl_orders WHERE cust_id=?</sql>
+      <result outputType="json"> {&#xd;"inventory":&#xd;  {&#xd;    "cust_id":"$cust_id", &#xd;    "delivery":"$delivery", &#xd;    "contact":"$contact", &#xd;    "item":"$item", &#xd;    "quantity":$quantity&#xd; }&#xd;}        &#xd;         &#xd;         &#xd;         &#xd;         &#xd;      </result>
+      <param name="cust_id" ordinal="1" sqlType="STRING"/>
+   </query>
+   <query id="select_all_tbl_orders_query" useConfig="default">
+      <sql>SELECT cust_id, delivery, contact, item, quantity FROM tbl_orders</sql>
+      <result element="tbl_ordersCollection" rowName="tbl_orders">
+         <element column="cust_id" name="cust_id" xsdType="xs:string"/>
+         <element column="delivery" name="delivery" xsdType="xs:string"/>
+         <element column="contact" name="contact" xsdType="xs:string"/>
+         <element column="item" name="item" xsdType="xs:string"/>
+         <element column="quantity" name="quantity" xsdType="xs:integer"/>
+      </result>
+   </query>
+   <operation name="select_all_tbl_orders_operation">
+      <call-query href="select_all_tbl_orders_query"/>
+   </operation>
+   <operation name="update_tbl_orders_operation">
+      <call-query href="update_tbl_orders_query">
+         <with-param name="delivery" query-param="delivery"/>
+         <with-param name="item" query-param="item"/>
+         <with-param name="quantity" query-param="quantity"/>
+         <with-param name="contact" query-param="contact"/>
+         <with-param name="cust_id" query-param="cust_id"/>
+      </call-query>
+   </operation>
+   <operation name="select_with_key_tbl_orders_operation">
+      <call-query href="select_with_key_tbl_orders_query">
+         <with-param name="cust_id" query-param="cust_id"/>
+      </call-query>
+   </operation>
+   <operation name="insert_tbl_orders_operation">
+      <call-query href="insert_tbl_orders_query">
+         <with-param name="delivery" query-param="delivery"/>
+         <with-param name="item" query-param="item"/>
+         <with-param name="quantity" query-param="quantity"/>
+         <with-param name="contact" query-param="contact"/>
+         <with-param name="cust_id" query-param="cust_id"/>
+      </call-query>
+   </operation>
+   <operation name="delete_tbl_orders_operation">
+      <call-query href="delete_tbl_orders_query">
+         <with-param name="cust_id" query-param="cust_id"/>
+      </call-query>
+   </operation>
+   <resource method="POST" path="data">
+      <call-query href="insert_tbl_orders_query">
+         <with-param name="cust_id" query-param="cust_id"/>
+         <with-param name="delivery" query-param="delivery"/>
+         <with-param name="contact" query-param="contact"/>
+         <with-param name="item" query-param="item"/>
+         <with-param name="quantity" query-param="quantity"/>
+      </call-query>
+   </resource>
+   <resource method="GET" path="data/{cust_id}">
+      <call-query href="select_with_key_tbl_orders_query">
+         <with-param name="cust_id" query-param="cust_id"/>
+      </call-query>
+   </resource>
+</data>
+

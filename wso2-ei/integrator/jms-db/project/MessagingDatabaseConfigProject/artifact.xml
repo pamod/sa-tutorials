@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="WarehouseRecordDataInsertSequence" groupId="org.wso2.integration.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/WarehouseRecordDataInsertSequence.xml</file>
+    </artifact>
+    <artifact name="WarehouseDataInsertEndpoint" groupId="org.wso2.integration.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/WarehouseDataInsertEndpoint.xml</file>
+    </artifact>
+    <artifact name="WarehouseRecordInsertErrorSequence" groupId="org.wso2.integration.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/WarehouseRecordInsertErrorSequence.xml</file>
+    </artifact>
+    <artifact name="QueueDataInstertInboundEndpoint" groupId="org.wso2.integration.inbound-endpoint" version="1.0.0" type="synapse/inbound-endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/inbound-endpoints/QueueDataInstertInboundEndpoint.xml</file>
+    </artifact>
+    <artifact name="WarehouseDataTransferApi" groupId="org.wso2.integration.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/WarehouseDataTransferApi.xml</file>
+    </artifact>
+    <artifact name="WarehouseDatafetchEndpoint" groupId="org.wso2.integration.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/WarehouseDatafetchEndpoint.xml</file>
+    </artifact>
+</artifacts>
