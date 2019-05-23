@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="WarehouseDataTransferApi" groupId="org.wso2.integration.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/WarehouseDataTransferApi.xml</file>
+    </artifact>
+    <artifact name="EmailTransferSequence" groupId="org.wso2.integration.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/EmailTransferSequence.xml</file>
+    </artifact>
+    <artifact name="WarehouseDatafetchEndpoint" groupId="org.wso2.integration.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/WarehouseDatafetchEndpoint.xml</file>
+    </artifact>
+    <artifact name="ItemDatafetchEndpoint" groupId="org.wso2.integration.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/ItemDatafetchEndpoint.xml</file>
+    </artifact>
+    <artifact name="ItemDetailsTransferApi" groupId="org.wso2.integration.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/ItemDetailsTransferApi.xml</file>
+    </artifact>
+</artifacts>

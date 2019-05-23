@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/warehouse" name="WarehouseDataTransferApi" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" uri-template="/transfer/{custId}">
+        <inSequence>
+            <property name="FORCE_SC_ACCEPTED" scope="axis2" type="STRING" value="true"/>
+            <call>
+                <endpoint key="WarehouseDatafetchEndpoint"/>
+            </call>
+            <sequence key="EmailTransferSequence"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

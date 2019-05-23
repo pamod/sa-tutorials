@@ -1,0 +1,61 @@
+<data name="ItemService" serviceNamespace="http://ws.wso2.org/dataservice">
+   <config enableOData="false" id="default">
+      <property name="carbon_datasource_name">WarehouseDB</property>
+   </config>
+   <query id="insert_tbl_items_query" useConfig="default">
+      <sql>INSERT INTO tbl_items(itemId,description) VALUES(?,?)</sql>
+      <param name="itemId" ordinal="1" sqlType="STRING"/>
+      <param name="description" ordinal="2" sqlType="STRING"/>
+   </query>
+   <query id="update_tbl_items_query" useConfig="default">
+      <sql>UPDATE tbl_items SET description=? WHERE itemId=?</sql>
+      <param name="description" ordinal="1" sqlType="STRING"/>
+      <param name="itemId" ordinal="2" sqlType="STRING"/>
+   </query>
+   <query id="select_all_tbl_items_query" useConfig="default">
+      <sql>SELECT itemId, description FROM tbl_items</sql>
+      <result element="tbl_itemsCollection" rowName="tbl_items">
+         <element column="itemId" name="itemId" xsdType="xs:string"/>
+         <element column="description" name="description" xsdType="xs:string"/>
+      </result>
+   </query>
+   <query id="delete_tbl_items_query" useConfig="default">
+      <sql>DELETE FROM tbl_items WHERE itemId=?</sql>
+      <param name="itemId" ordinal="1" sqlType="STRING"/>
+   </query>
+   <query id="select_with_key_tbl_items_query" useConfig="default">
+      <sql>SELECT itemId, description FROM tbl_items WHERE itemId=?</sql>
+      <result outputType="json">{&#xd;   "item": {&#xd;       "itemId":"$itemId",&#xd;       "description":"$description"&#xd;    }&#xd;}         &#xd;         &#xd;      </result>
+      <param name="itemId" ordinal="1" sqlType="STRING"/>
+   </query>
+   <operation name="insert_tbl_items_operation">
+      <call-query href="insert_tbl_items_query">
+         <with-param name="itemId" query-param="itemId"/>
+         <with-param name="description" query-param="description"/>
+      </call-query>
+   </operation>
+   <operation name="select_all_tbl_items_operation">
+      <call-query href="select_all_tbl_items_query"/>
+   </operation>
+   <operation name="delete_tbl_items_operation">
+      <call-query href="delete_tbl_items_query">
+         <with-param name="itemId" query-param="itemId"/>
+      </call-query>
+   </operation>
+   <operation name="update_tbl_items_operation">
+      <call-query href="update_tbl_items_query">
+         <with-param name="itemId" query-param="itemId"/>
+         <with-param name="description" query-param="description"/>
+      </call-query>
+   </operation>
+   <operation name="select_with_key_tbl_items_operation">
+      <call-query href="select_with_key_tbl_items_query">
+         <with-param name="itemId" query-param="itemId"/>
+      </call-query>
+   </operation>
+   <resource method="GET" path="item/{itemId}">
+      <call-query href="select_with_key_tbl_items_query">
+         <with-param name="itemId" query-param="itemId"/>
+      </call-query>
+   </resource>
+</data>

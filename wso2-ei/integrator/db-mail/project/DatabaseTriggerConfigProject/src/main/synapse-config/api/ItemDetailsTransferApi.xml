@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/details" name="ItemDetailsTransferApi" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" uri-template="/{custId}">
+        <inSequence>
+            <property name="FORCE_SC_ACCEPTED" scope="axis2" type="STRING" value="true"/>
+            <call>
+                <endpoint key="WarehouseDatafetchEndpoint"/>
+            </call>
+            <property expression="json-eval($.inventory.item)" name="uri.var.itemId" scope="default" type="STRING"/>
+            <enrich>
+                <source clone="false" type="body"/>
+                <target property="WAREHOUSEDATA_PAYLOAD" type="property"/>
+            </enrich>
+            <header name="Accept" scope="transport" value="application/json"/>
+            <header action="remove" name="Content-Type" scope="transport"/>
+            <call>
+                <endpoint key="ItemDatafetchEndpoint"/>
+            </call>
+            <enrich>
+                <source clone="true" property="WAREHOUSEDATA_PAYLOAD" type="property"/>
+                <target action="sibling" xpath="//jsonObject/item"/>
+            </enrich>
+            <log level="full"/>
+            <sequence key="EmailTransferSequence"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

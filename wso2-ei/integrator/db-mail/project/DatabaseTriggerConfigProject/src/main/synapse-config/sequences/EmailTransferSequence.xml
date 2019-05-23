@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="EmailTransferSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <payloadFactory media-type="text">
+        <format>$1</format>
+        <args>
+            <arg evaluator="json" expression="$"/>
+        </args>
+    </payloadFactory>
+    <property name="Subject" scope="transport" type="STRING" value="Mail Order"/>
+    <property name="messageType" scope="axis2" type="STRING" value="text/plain"/>
+    <property name="ContentType" scope="axis2" type="STRING" value="text/plain"/>
+    <property name="OUT_ONLY" scope="default" type="STRING" value="true"/>
+    <header expression="fn:concat('mailto:', 'synapse@wso2.com')" name="To" scope="default" xmlns:ns="http://org.apache.synapse/xsd"/>
+    <log level="full"/>
+    <send/>
+</sequence>

@@ -2,11 +2,11 @@
 <api context="/warehouse" name="WarehouseDataTransferApi" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="POST" uri-template="/transfer/{custId}">
         <inSequence>
-            <property name="OUT_ONLY" scope="default" type="STRING" value="true"/>
             <property name="FORCE_SC_ACCEPTED" scope="axis2" type="STRING" value="true"/>
             <call>
                 <endpoint key="WarehouseDatafetchEndpoint"/>
             </call>
+            <property name="OUT_ONLY" scope="default" type="STRING" value="true"/>
             <send>
                 <endpoint>
                     <address uri="jms:/WarehouseOrders?transport.jms.ConnectionFactoryJNDIName=QueueConnectionFactory&amp;java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;java.naming.provider.url=failover:(tcp://localhost:61616,tcp://localhost:61617)?randomize=false&amp;transport.jms.DestinationType=queue"/>
