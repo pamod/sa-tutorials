@@ -1,29 +1,10 @@
 #### JMS/Email 
 
-The sample demonstrate how to integrate between queue based systems via JMS and with mail systems
+Read content from mail and send to JMS queue and vice versa.
 
-###Prerequesites 
+###Pre-requisites 
 
-- The following folders should be created
-
-- Make sure JMS broker is running. For this example we'll be using ActiveMQ. In order to configure and run ActiveMQ broker follow the instructions in 
-https://docs.wso2.com/display/EI640/Configure+with+ActiveMQ
-- Make sure the following mail sender/receiver is enabled in axis2.xml
-    <transportReceiver name="mailto" class="org.apache.axis2.transport.mail.MailTransportListener">
-    </transportReceiver>
-
-   <transportSender name="mailto" class="org.apache.axis2.transport.mail.MailTransportSender">
-        <parameter name="mail.smtp.host">smtp.gmail.com</parameter>
-        <parameter name="mail.smtp.port">587</parameter>
-        <parameter name="mail.smtp.starttls.enable">true</parameter>
-        <parameter name="mail.smtp.auth">true</parameter>
-        <parameter name="transport.mail.Format">Text</parameter>
-        <parameter name="mail.smtp.user">sademo2019</parameter>
-        <parameter name="mail.smtp.password">sa@wso2.com</parameter>
-        <parameter name="mail.smtp.from">sademo2019@gmail.com</parameter>
-    </transportSender>
-- Ensure that EI is downloaded and started 
-- Deploy MailExchangeConfigProjectCarbonApplication
+- Make sure the environment is setup by following <link to setup>
 
 ###Email to JMS 
 

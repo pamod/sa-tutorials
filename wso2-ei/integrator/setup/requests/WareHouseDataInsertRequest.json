@@ -1,0 +1,10 @@
+{
+  "_postdata":
+  {
+    "cust_id":"hmart",
+    "delivery":"addr1",
+    "contact":"784-7948754",
+    "item":"A200",
+    "quantity":120
+  }
+}

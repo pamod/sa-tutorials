@@ -1,1 +1,5 @@
-Contains a list of samples which will demonstrate the capabilities of WSO2/Ballerina products 
+WSO2 Product Integration Scenarios
+
+- To get started with EI scenarios refer setup <link>
+
+ 

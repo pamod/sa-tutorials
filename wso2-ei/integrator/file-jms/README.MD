@@ -1,21 +1,13 @@
 #### FTP/File to JMS
 
-The sample demonstrate how to integrate between FTP to JMS queue system
+Reads content from a file located in local directory and forward the content to queue.
 
-###Prerequesites 
+###Pre-requisites 
 
-- The following folders should be created
-
-To read file which contains a warehouse order request and dispatch to the queue
-/Users/pamod/Desktop/demo/sa-tutorials/wso2-ei/integrator/file-ops/source
-
-- To read the content from queue and store it in the relevant destination
-/Users/pamod/Desktop/demo/sa-tutorials/wso2-ei/integrator/file-ops/destination
-
-- Make sure JMS broker is running. For this example we'll be using ActiveMQ. In order to configure and run ActiveMQ broker follow the instructions in 
-https://docs.wso2.com/display/EI640/Configure+with+ActiveMQ
-- Ensure that EI is downloaded and started 
-- Deploy MessagingConfigProjectCompositeApplication
+- Make sure the environment is setup by following <link to setup>
+- Locate the file FileTransferQueueInboundEndpoint.xml and QueueTransferFileSequence.xml 
+and replace the file paths of /source and /destination with SRC_DIRECTORY and DST_DIRECTORY
+file paths. 
 
 ###File to JMS
 

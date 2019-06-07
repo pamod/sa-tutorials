@@ -13,13 +13,13 @@
         <parameter name="transport.vfs.MoveFailedRecordTimestampFormat">dd-MM-yyyy HH:mm:ss</parameter>
         <parameter name="transport.vfs.FailedRecordNextRetryDuration">3000</parameter>
         <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
-        <parameter name="transport.vfs.FileURI">file:///Users/pamod/Desktop/demo/sa-tutorials/wso2-ei/integrator/file-ops/batch</parameter>
-        <parameter name="transport.vfs.MoveAfterFailure">file:///Users/pamod/Desktop/demo/sa-tutorials/wso2-ei/integrator/file-ops/source</parameter>
+        <parameter name="transport.vfs.FileURI">file:///Users/pamod/Desktop/test/source/batch</parameter>
+        <parameter name="transport.vfs.MoveAfterFailure">file:///Users/pamod/Desktop/test/source</parameter>
         <parameter name="transport.vfs.ReplyFileName">response.xml</parameter>
         <parameter name="transport.vfs.MoveTimestampFormat">yyyy.MMMMM.dd hh:mm:ss aaa </parameter>
         <parameter name="transport.vfs.DistributedLock">false</parameter>
         <parameter name="transport.vfs.FileNamePattern">.*\.json</parameter>
-        <parameter name="transport.vfs.MoveAfterProcess">file:///Users/pamod/Desktop/demo/sa-tutorials/wso2-ei/integrator/file-ops/completed</parameter>
+        <parameter name="transport.vfs.MoveAfterProcess">file:///Users/pamod/Desktop/test/completed</parameter>
         <parameter name="transport.vfs.Locking">disable</parameter>
         <parameter name="transport.vfs.FileSortAttribute">none</parameter>
         <parameter name="transport.vfs.FileSortAscending">true</parameter>
