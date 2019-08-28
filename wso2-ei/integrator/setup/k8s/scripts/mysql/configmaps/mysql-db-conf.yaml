@@ -1,0 +1,31 @@
+apiVersion: v1
+data:
+  init.sql: |
+    CREATE DATABASE  IF NOT EXISTS `warehouse`;
+    USE `warehouse`;
+    SET NAMES utf8 ;
+    DROP TABLE IF EXISTS `tbl_items`;
+    SET character_set_client = utf8mb4 ;
+    CREATE TABLE `tbl_items` (
+    `itemId` varchar(500) NOT NULL,
+    `description` varchar(500) DEFAULT NULL,
+    PRIMARY KEY (`itemId`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+    LOCK TABLES `tbl_items` WRITE;
+    INSERT INTO `tbl_items` VALUES ('A200','Monitoring and Observability');
+    UNLOCK TABLES;
+    DROP TABLE IF EXISTS `tbl_orders`;
+    SET character_set_client = utf8mb4 ;
+    CREATE TABLE `tbl_orders` (
+    `cust_id` varchar(500) NOT NULL,
+    `delivery` varchar(500) DEFAULT NULL,
+    `contact` varchar(500) DEFAULT NULL,
+    `item` varchar(500) DEFAULT NULL,
+    `quantity` int(11) DEFAULT NULL,
+    PRIMARY KEY (`cust_id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+kind: ConfigMap
+metadata:
+  name: mysql-dbscripts
+  namespace: "k8swso2demo"
+---

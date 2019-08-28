@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wso2ei
+  namespace: "k8swso2demo"
+spec: 
+  selector:
+    matchLabels:
+      app: wso2ei
+  strategy:
+    type: Recreate     
+  template:
+    metadata:
+      labels:
+         app: wso2ei
+    spec:
+      containers:
+        - name: wso2ei
+          image: wso2ei-integrator:6.5.0
+          livenessProbe:
+            exec:
+              command:
+                - /bin/bash
+                - -c
+                - nc -z localhost 9443
+            initialDelaySeconds: 60
+            periodSeconds: 10
+          readinessProbe:
+            exec:
+              command:
+                - /bin/bash
+                - -c
+                - nc -z localhost 9443
+            initialDelaySeconds: 60
+            periodSeconds: 10 
+          ports:
+            - containerPort: 8280
+              protocol: TCP
+            - containerPort: 8243
+              protocol: TCP
+            - containerPort: 9763
+              protocol: TCP
+            - containerPort: 9443
+              protocol: TCP
+          volumeMounts: 
+            - name: integrator-conf-axis2
+              mountPath: /home/wso2carbon/wso2-config-volume/conf/axis2
+            - name: integrator-conf-datasources
+              mountPath: /home/wso2carbon/wso2-config-volume/conf/datasource  
+      volumes:
+        - name: integrator-conf-axis2
+          configMap:
+            name: integrator-conf-axis2
+        - name: integrator-conf-datasources
+          configMap:
+            name: integrator-conf-datasources
+---
